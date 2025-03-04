@@ -1,15 +1,40 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        // WordCounter-ის მაგალითი
+        WordCounter.main(args);
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        // Student-ის მაგალითი
+        Student student1 = new Student("1", "გიორგი", "აბაშიძე");
+        student1.addGrade("ქართული", 10);
+        student1.addGrade("მათემატიკა", 8);
+
+        Student student2 = new Student("2", "ანა", "ბერიძე");
+        student2.addGrade("ქართული", 9);
+        student2.addGrade("მათემატიკა", 9);
+
+        Student student3 = new Student("3", "ზურა", "გელაშვილი");
+        student3.addGrade("ქართული", 7);
+        student3.addGrade("მათემატიკა", 10);
+
+        List<Student> students = new ArrayList<>();
+        students.add(student1);
+        students.add(student2);
+        students.add(student3);
+
+        System.out.println("\nსტუდენტები საშუალო ქულის მიხედვით:");
+        Collections.sort(students);
+        for (Student student : students) {
+            System.out.println(student);
+        }
+
+        System.out.println("\nსტუდენტები გვარის მიხედვით:");
+        Collections.sort(students, new StudentLastNameComparator());
+        for (Student student : students) {
+            System.out.println(student);
         }
     }
 }
