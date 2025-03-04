@@ -4,10 +4,10 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        // WordCounter-ის მაგალითი
+       
         WordCounter.main(args);
 
-        // Student-ის მაგალითი
+       
         Student student1 = new Student("1", "გიორგი", "აბაშიძე");
         student1.addGrade("ქართული", 10);
         student1.addGrade("მათემატიკა", 8);
